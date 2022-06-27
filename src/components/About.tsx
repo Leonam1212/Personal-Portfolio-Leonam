@@ -3,7 +3,7 @@ import leonam from "../assets/img/leonamPhoto.jpg";
 
 export function About() {
   return (
-    <div className="lg:h-screen h-auto lg:mt-10" id="about">
+    <div className="lg:h-auto lg:mt-10" id="about">
       <h1 className="flex items-center justify-center h-40 text-3xl font-bold tracking-wider 	">
         SOBRE MIM
       </h1>

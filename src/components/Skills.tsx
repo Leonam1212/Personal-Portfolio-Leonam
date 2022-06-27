@@ -8,15 +8,15 @@ interface SkillProgressProps {
 
 export function Skills() {
   return (
-    <div id="skills" className="h-auto ">
+    <div id="skills" className="h-auto">
       <header className="flex flex-col text-center items-center justify-center h-40 text-3xl font-bold tracking-wider leading-relaxed my-12	">
         MINHAS HABILIDADES
-        <p className="font-thin text-center">
+        <p className="font-thin  text-center">
           Saiba as tecnologias que domino e que também estou aprendendo
         </p>
       </header>
 
-      <main className="flex md:max-w-[70%] overflow-x-auto md:overflow-hidden items-center justify-center w-full h-96 m-auto md:h-auto  gap-24 md:flex-wrap">
+      <main className="flex md:max-w-[70%] overflow-x-scroll justify-left  md:overflow-hidden items-center md:justify-center w-full h-96 m-auto md:h-auto  gap-24 md:flex-wrap">
         <SkillProgress tech="HTML" percent={95} />
         <SkillProgress tech="CSS" percent={60} />
         <SkillProgress tech="JAVASCRIPT" percent={85} />
