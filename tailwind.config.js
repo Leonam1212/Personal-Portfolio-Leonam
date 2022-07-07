@@ -6,6 +6,21 @@ module.exports = {
       fontFamily: {
         sans: "Raleway, sans-serif",
       },
+      keyframes: {
+        typing: {
+          "0%": { width: 0 },
+        },
+
+        blink: {
+          "50%": { borderColor: "transparent" },
+        },
+      },
+
+      animation: {
+        typing:
+          "typing 4s steps(22) infinite alternate, blink .5s step-end infinite alternate",
+      },
+
       colors: {
         green: {
           300: "#00B37E",

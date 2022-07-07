@@ -1,5 +1,7 @@
+import { useEffect, useRef } from "react";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import ScrollReveal from "scrollreveal";
 
 interface SkillProgressProps {
   tech: string;
@@ -7,6 +9,16 @@ interface SkillProgressProps {
 }
 
 export function Skills() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (sectionRef.current) {
+      ScrollReveal().reveal(sectionRef.current, {
+        reset: true,
+        delay: 500,
+      });
+    }
+  }, []);
+
   return (
     <div id="skills" className="h-auto">
       <header className="flex flex-col text-center items-center justify-center h-40 text-3xl font-bold tracking-wider leading-relaxed my-12	">
@@ -16,7 +28,10 @@ export function Skills() {
         </p>
       </header>
 
-      <main className="flex md:max-w-[70%] overflow-x-scroll justify-left  md:overflow-hidden items-center md:justify-center w-full h-96 m-auto md:h-auto  gap-24 md:flex-wrap">
+      <main
+        ref={sectionRef}
+        className="flex md:max-w-[70%] overflow-x-scroll justify-left  md:overflow-hidden items-center md:justify-center w-full h-96 m-auto md:h-auto  gap-24 md:flex-wrap"
+      >
         <SkillProgress tech="HTML" percent={95} />
         <SkillProgress tech="CSS" percent={60} />
         <SkillProgress tech="JAVASCRIPT" percent={85} />

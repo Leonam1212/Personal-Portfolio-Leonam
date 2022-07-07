@@ -1,4 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
+import { WindowsLogo } from "phosphor-react";
+import { useEffect, useRef } from "react";
+import ScrollReveal from "scrollreveal";
 
 const GET_PROJECTS_QUERY = gql`
   query {
@@ -32,18 +35,27 @@ interface ProjectProps {
 export function Projects() {
   const { data } = useQuery<GetProjectsQueryResponse>(GET_PROJECTS_QUERY);
 
-  if (!data) {
-    return <div>CARREGANDO...</div>;
-  }
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (sectionRef.current) {
+      ScrollReveal().reveal(sectionRef.current, {
+        reset: true,
+        delay: 500,
+      });
+    }
+  }, []);
 
   return (
-    <div id="projects" className="h-auto w-screen">
+    <div id="projects" className="projects h-auto w-screen">
       <header className="flex flex-col items-center justify-center h-40 text-3xl font-bold tracking-wider leading-relaxed my-10	">
         MEUS PROJETOS
         <p className="font-thin text-center">Conheça meus projetos</p>
       </header>
 
-      <main className="flex md:h-auto md:max-w-[85%] m-auto  justify-center flex-wrap gap-12">
+      <main
+        ref={sectionRef}
+        className="flex md:h-auto md:max-w-[85%] m-auto  justify-center flex-wrap gap-12"
+      >
         {data?.projects.map((project) => {
           return (
             <Project

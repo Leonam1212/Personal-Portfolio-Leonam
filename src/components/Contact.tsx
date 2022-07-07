@@ -1,7 +1,9 @@
+import { useEffect, useRef } from "react";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn, FaMapMarkerAlt } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
 import { HiOutlineMail } from "react-icons/hi";
+import ScrollReveal from "scrollreveal";
 
 import reactIcon from "../assets/img/reactIcon.svg";
 
@@ -13,6 +15,15 @@ interface InfoContactProps {
 }
 
 export function Contact() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (sectionRef.current) {
+      ScrollReveal().reveal(sectionRef.current, {
+        reset: true,
+        delay: 500,
+      });
+    }
+  }, []);
   return (
     <div id="contact" className="h-screen mt-24 flex flex-col justify-between">
       <header className="flex items-center justify-center  text-3xl font-bold tracking-wider ">
@@ -20,6 +31,7 @@ export function Contact() {
       </header>
 
       <main
+        ref={sectionRef}
         className="my-20 md:my-0 flex flex-col md:flex-wrap items-center justify-center gap-10 md:gap-1 "
         style={{
           backgroundImage: `url(${reactIcon})`,

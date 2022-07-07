@@ -1,14 +1,28 @@
 import reactIcon from "../assets/img/reactIcon.svg";
 import leonam from "../assets/img/leonamPhoto.jpg";
+import { useEffect, useRef } from "react";
+import ScrollReveal from "scrollreveal";
 
 export function About() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (sectionRef.current) {
+      ScrollReveal().reveal(sectionRef.current, {
+        reset: true,
+        delay: 500,
+      });
+    }
+  }, []);
   return (
     <div className="lg:h-auto lg:mt-10" id="about">
       <h1 className="flex items-center justify-center h-40 text-3xl font-bold tracking-wider 	">
         SOBRE MIM
       </h1>
 
-      <main className="flex  flex-col lg:flex-row lg:items-center lg:justify-center gap-12  lg:gap-4">
+      <main
+        ref={sectionRef}
+        className="flex  flex-col lg:flex-row lg:items-center lg:justify-center gap-12  lg:gap-4"
+      >
         <img
           src={leonam}
           className="lg:mr-12 w-[400px] h-[350px] m-auto md:w-[500px] md:h-[500px] rounded border-2 border-orange-500 hover:border-blue-500 transition-all duration-300 ease-linear shadow-lg"

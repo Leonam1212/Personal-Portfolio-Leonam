@@ -2,6 +2,7 @@ import bgHome from "../assets/img/homeBg.svg";
 import { BsGithub } from "react-icons/bs";
 import { FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
+
 export function Home() {
   return (
     <div
@@ -20,10 +21,10 @@ export function Home() {
           <p className="font-thin md:text-3xl text-2xl tracking-wider drop-shadow-lg shadow-black">
             Hello world,
           </p>
-          <strong className="md:text-6xl text-3xl tracking-wider drop-shadow-lg shadow-black">
+          <strong className="md:text-6xl text-3xl tracking-wider drop-shadow-lg shadow-black ">
             Leonam Rodrigues
           </strong>
-          <p className="font-thin md:text-3xl text-2xl tracking-widest drop-shadow-lg shadow-black">
+          <p className="font-regular md:text-3xl text-2xl tracking-widest drop-shadow-lg shadow-black md:animate-typing border-r-4 md:overflow-hidden md:whitespace-nowrap w-[24ch] ">
             Desenvolvedor Full stack
           </p>
         </div>
